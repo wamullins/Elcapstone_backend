@@ -1,11 +1,7 @@
-// https://itnext.io/building-restful-web-apis-with-node-js-express-mongodb-and-typescript-part-1-2-195bdaf129cf
-// this cite helped me build this starting boilerplate
-
-import express from "express";  // need to import the defualt import, not the namespace import 
+import express from "express"; // need to import the defualt import, not the namespace import 
 import mongoose from "mongoose";
 import bodyParser from "body-parser"; 
 import { Routes } from "./routes/appRouter";
-import cors from "cors"
 
 class App { 
     public app: express.Application;
@@ -32,10 +28,4 @@ class App {
     }
 }
 
-const app = new App().app
-
-app.use(cors())
-
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
+export default new App().app;
